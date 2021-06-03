@@ -1,20 +1,15 @@
 import requests
 import re
+import os
 from twilio.rest import Client
 import datetime
 from  time import sleep
 
-# we can use environment variables to get our credentials safely, but
-# I wanted to show some regex x)
-def credentails():
-    with open("credentials.txt", 'r') as f:
-        lines = f.readlines()
 
-    AUTH_TOKEN = re.search('[".-]+[.\w.-]+', lines[0]).group()[1:]
-    SID = re.search('[".-]+[.\w.-]+', lines[1]).group()[1:]
-    API_KEY = re.search('[".-]+[.\w.-]+', lines[2]).group()[1:]
-
-    return AUTH_TOKEN, SID, API_KEY
+#our credentials
+AUTH_TOKEN = os.environ.get('WEATHER_API_KEY')
+API_KEY = os.environ.get('TWILIO_AUTH_TOKEN')
+SID = "AC54158ffd6431e8efa5c7c0d6b27bb5ac"
 
 # phone numbers where we are sending our report
 toNum = ["+9779869422081", "+9779860459806"]
@@ -23,7 +18,6 @@ toNum = ["+9779869422081", "+9779860459806"]
 fromNum = "+16196584465"
 
 # get our twilio api token, sid, and open weather api key
-AUTH_TOKEN, SID, API_KEY = credentails()
 
 
 # parameters that we use in our get request
@@ -35,7 +29,8 @@ parameters = {
 }
 
 
-while (True):
+
+while (False):
     # will check the time continuously until it's 6-am
     # then it'll send the weather report and sleep for 24 hours(at the end) making our code efficient
     now = datetime.datetime.now().strftime("%H")
