@@ -19,20 +19,11 @@ def credentails():
 
 AUTH_TOKEN, SID, API_KEY = credentails()
 
-AUTH_TOKEN2 = "532aa770e714ac52ba1b181e2a9f7730"
-SID2 = "AC54158ffd6431e8efa5c7c0d6b27bb5ac"
-API_KEY2 = "b8a00843fab80db545bc18758bd1ddfb"
-
-if((AUTH_TOKEN == AUTH_TOKEN2) and (SID == SID2) and (API_KEY2 == API_KEY)):
-    print("Correct")
-else: print("False")
-
 # phone numbers where we are sending our report
 toNum = ["+9779869422081", "+9779860459806"]
 
 # phone number that'll send our message
 fromNum = "+16196584465"
-
 
 # parameters that we use in our get request
 parameters = {
