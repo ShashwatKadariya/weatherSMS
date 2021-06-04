@@ -49,7 +49,7 @@ while (True):
     # then it'll send the weather report and sleep for 24 hours(at the end) making our code efficient
     now = datetime.datetime.now().strftime("%H")
     # if time is 6-am then we will send the message
-    if now == "06":
+    if now == "06": # 06 is nepal time, you might want to use utc >> 6 am nepal time == 0 utc
         print("time correct")
         response = requests.get(url= "https://api.openweathermap.org/data/2.5/onecall", params= parameters)
 
