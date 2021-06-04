@@ -33,8 +33,6 @@ toNum = ["+9779869422081", "+9779860459806"]
 # phone number that'll send our message
 fromNum = "+16196584465"
 
-# get our twilio api token, sid, and open weather api key
-
 
 # parameters that we use in our get request
 parameters = {
@@ -50,9 +48,8 @@ while (True):
     # will check the time continuously until it's 6-am
     # then it'll send the weather report and sleep for 24 hours(at the end) making our code efficient
     now = datetime.datetime.now().strftime("%H")
-    print(now)
     # if time is 6-am then we will send the message
-    if now == "07":
+    if now == "06":
         print("time correct")
         response = requests.get(url= "https://api.openweathermap.org/data/2.5/onecall", params= parameters)
 
